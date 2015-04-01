@@ -42,10 +42,10 @@ def main(argv):
         #for num in range(1,9):
         for num in rbands.split(","):
             pathnamefile = pathname + "_B" + str(num) + '.TIF'
-            print pathnamefile
+            #print pathnamefile
             filename = output.replace("'\'","/") + "/" + os.path.basename(pathnamefile)
-            #key = bucket.get_key(pathnamefile)
-            #key.get_contents_to_filename(filename)
+            key = bucket.get_key(pathnamefile)
+            key.get_contents_to_filename(filename)
     except:
         sys.exit(1)
 
